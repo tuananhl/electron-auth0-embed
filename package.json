@@ -1,0 +1,23 @@
+{
+  "name": "electron-auth0-authorization",
+  "version": "1.0.0",
+  "description": "A package helps user can login in with auth0 directly in Electron application instead of registering a new protocol and open in browser",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsup --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321",
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "electron": "^33.2.1",
+    "got": "^14.4.5",
+    "qs": "^6.13.1"
+  }
+}
