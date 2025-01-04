@@ -1,6 +1,6 @@
 {
   "name": "electron-auth0-authorization",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package helps user can login in with auth0 directly in Electron application instead of registering a new protocol and open in browser",
   "main": "dist/index.js",
   "scripts": {
