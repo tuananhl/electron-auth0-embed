@@ -10,7 +10,7 @@ const authAPIAdapter: Adapter = (config) => {
         client_id: config.auth0.clientId,
         code_verifier: pair.verifier,
         code: authCode,
-        redirect_uri: `https://${config.auth0.domain}/result`
+        redirect_uri: `https://${config.auth0.domain}/mobile`
       }),
     }).then((response: Response) => response.json()),
     getProfile: (accessToken) => fetch(`https://${config.auth0.domain}/userinfo`, { headers: { 'Authorization': `Bearer ${accessToken}` } }).then((response) => response.json())
