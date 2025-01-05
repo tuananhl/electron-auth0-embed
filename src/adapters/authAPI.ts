@@ -6,6 +6,9 @@ const authAPIAdapter: Adapter = (config) => {
     exchangeAuthCode: (authCode, pair) => {
       return fetch(`https://${config.auth0.domain}/oauth/token`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           grant_type: 'authorization_code',
           client_id: config.auth0.clientId,
@@ -15,7 +18,7 @@ const authAPIAdapter: Adapter = (config) => {
         }),
       }).then((response: Response) => response.json());
     },
-    getProfile: (accessToken) => fetch(`https://${config.auth0.domain}/userinfo`, { headers: { 'Authorization': `Bearer ${accessToken}` } }).then((response) => response.json())
+    getProfile: (accessToken) => fetch(`https://${config.auth0.domain}/userinfo`, { headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json', } }).then((response) => response.json())
   })
 };
 
