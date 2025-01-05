@@ -13,18 +13,23 @@ async function login(ctx: IContext): Promise<string> {
     authWindow,
     authAPI,
     tokens,
+    debug: { log },
   } = ctx;
   const pair = cryptography.getPKCEChallengePair();
+  log({ pair });
   const authCode = await authWindow.login(pair);
+  log({ authCode });
   const token = await authAPI.exchangeAuthCode(authCode, pair);
+  console.log({ token });
   tokens.set(token);
   return token.access_token;
 }
 
 async function getToken(ctx: IContext): Promise<string> {
-  const { tokens } = ctx;
+  const { tokens, debug: { log } } = ctx;
 
   const token = await tokens.get();
+  log({ token, expired: tokens.expiredIn() > 60 });
   if (token && tokens.expiredIn() > 60) {
     return token.access_token;
   }

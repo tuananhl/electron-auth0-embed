@@ -36,6 +36,9 @@ export type IContext = {
     exchangeAuthCode: (authCode: string, pair: PKCEPair) => Promise<ITokenResponse>;
     getProfile: (accessToken: string) => Promise<IProfile | null>;
   };
+  debug: {
+    log: (data: any) => void;
+  };
 }
 
 export type Adapter = (config: IConfig) => Partial<IContext>;
